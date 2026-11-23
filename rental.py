@@ -1,11 +1,4 @@
 
-# =====================================
-# PROJECT UTS PEMROGRAMAN BERORIENTASI OBJEK
-# SISTEM RENTAL KENDARAAN
-# =====================================
-
-
-# CLASS 1: KENDARAAN
 class Kendaraan:
     jumlah_kendaraan = 0
 
@@ -18,12 +11,12 @@ class Kendaraan:
 
         Kendaraan.jumlah_kendaraan += 1
 
-    # Encapsulation dan property
+  
     @property
     def status(self):
         return self.__status
 
-    # Setter
+    
     @status.setter
     def status(self, status_baru):
         if status_baru in ["Tersedia", "Disewa"]:
@@ -31,17 +24,17 @@ class Kendaraan:
         else:
             print("Status tidak valid!")
 
-    # Class Method
+
     @classmethod
     def total_kendaraan(cls):
         return cls.jumlah_kendaraan
 
-    # Static Method
+    
     @staticmethod
     def validasi_harga(harga):
         return harga > 0
 
-    # Method menampilkan kendaraan
+    
     def tampilkan_data(self):
         print("--------------------------------")
         print("Kode Kendaraan :", self.kode)
@@ -51,24 +44,24 @@ class Kendaraan:
         print("Status         :", self.status)
 
 
-# CLASS 2: RENTAL
+
 class Rental:
     def __init__(self, nama_pelanggan):
         self.nama_pelanggan = nama_pelanggan
         self.daftar_kendaraan = []
 
-    # Menambahkan kendaraan
+  
     def tambah_kendaraan(self, kendaraan):
         self.daftar_kendaraan.append(kendaraan)
 
-    # Menampilkan kendaraan
+    
     def tampilkan_kendaraan(self):
         print("\n=== DAFTAR KENDARAAN ===")
 
         for kendaraan in self.daftar_kendaraan:
             kendaraan.tampilkan_data()
 
-    # Menyewa kendaraan
+    
     def sewa_kendaraan(self, kode, lama):
         for kendaraan in self.daftar_kendaraan:
             if kendaraan.kode == kode:
@@ -93,7 +86,6 @@ class Rental:
 
         print("Kode kendaraan tidak ditemukan!")
 
-    # Mengembalikan kendaraan
     def kembalikan_kendaraan(self, kode):
         for kendaraan in self.daftar_kendaraan:
             if kendaraan.kode == kode:
@@ -108,25 +100,21 @@ class Rental:
         print("Kode kendaraan tidak ditemukan!")
 
 
-# =====================================
-# PROGRAM UTAMA
-# =====================================
 
-# Membuat object kendaraan
 mobil = Kendaraan("K001", "Toyota Avanza", "Mobil", 350000)
 motor = Kendaraan("K002", "Honda Vario", "Motor", 100000)
 mobil2 = Kendaraan("K003", "Toyota Innova", "Mobil", 500000)
 
-# Membuat object rental
+
 rental = Rental("Andi Saputra")
 
-# Memasukkan kendaraan ke sistem
+
 rental.tambah_kendaraan(mobil)
 rental.tambah_kendaraan(motor)
 rental.tambah_kendaraan(mobil2)
 
 
-# Menu program
+
 while True:
     print("\n================================")
     print("       SISTEM RENTAL KENDARAAN")
@@ -162,3 +150,4 @@ while True:
 
     else:
         print("Pilihan tidak tersedia!")
+
